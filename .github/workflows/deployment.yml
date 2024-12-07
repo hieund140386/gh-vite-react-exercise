@@ -1,5 +1,17 @@
 name: Deployment exercise
-on: [push, workflow_dispatch]
+on:
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - ".github/workflows/*.yml"
+  pull_request:
+    types:
+      - opened
+    branches:
+      - main
+    paths-ignore:
+      - ".github/workflows/*.yml"
 jobs:
   lint:
     runs-on: ubuntu-latest
